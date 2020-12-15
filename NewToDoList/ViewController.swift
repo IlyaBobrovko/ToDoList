@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, CustomCellListene
         tableView.dataSource = self
         print(dataManager.fetchData().count)
         // Do any additional setup after loading the view.
+        // Test newL git branch
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
