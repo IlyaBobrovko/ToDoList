@@ -11,7 +11,7 @@
         <!--Tasks-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TaskListController" customModule="NewToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dOQ-Kx-iwz">
-                                                    <rect key="frame" x="10" y="5" width="86" height="47"/>
+                                                    <rect key="frame" x="10" y="5" width="394" height="47"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-uV-eul">
                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="47"/>
@@ -46,10 +46,10 @@
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dcR-QA-8xY">
-                                                            <rect key="frame" x="34" y="0.0" width="52" height="47"/>
+                                                            <rect key="frame" x="34" y="0.0" width="323.5" height="47"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKC-3g-gsM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="323.5" height="24"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="24" id="c2P-Vv-TfN"/>
                                                                     </constraints>
@@ -58,9 +58,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-f3-AiM">
-                                                                    <rect key="frame" x="0.0" y="26" width="52" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="26" width="323.5" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="kHz-Cn-CJK"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1000" id="uPk-n8-p4U"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -68,6 +69,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Djh-yJ-Gkj">
+                                                            <rect key="frame" x="367.5" y="0.0" width="26.5" height="47"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="26.5" id="tbF-FX-TiT"/>
+                                                            </constraints>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                                            <state key="normal" image="info.circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -75,7 +86,7 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dOQ-Kx-iwz" secondAttribute="bottom" constant="5" id="Gr7-WE-Z4A"/>
                                                 <constraint firstItem="dOQ-Kx-iwz" firstAttribute="top" secondItem="nHo-J9-l1q" secondAttribute="top" constant="5" id="HVc-aD-SwT"/>
                                                 <constraint firstItem="dOQ-Kx-iwz" firstAttribute="leading" secondItem="nHo-J9-l1q" secondAttribute="leading" constant="10" id="bTW-vW-dhA"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dOQ-Kx-iwz" secondAttribute="trailing" constant="10" id="zJI-T1-TSu"/>
+                                                <constraint firstAttribute="trailing" secondItem="dOQ-Kx-iwz" secondAttribute="trailing" constant="10" id="zJI-T1-TSu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -110,7 +121,7 @@
         <!--Add-->
         <scene sceneID="5of-Zr-xTf">
             <objects>
-                <tableViewController id="7Gz-WH-lnp" customClass="DetailViewController" customModule="NewToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7Gz-WH-lnp" customClass="TaskDetailsController" customModule="NewToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="PwC-od-zyd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +249,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7au-Xn-nAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852.1739130434785" y="73.660714285714278"/>
+            <point key="canvasLocation" x="1852" y="74"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -246,6 +257,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

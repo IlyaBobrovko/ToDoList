@@ -6,12 +6,11 @@
 //
 import UIKit
 
-class DetailViewController: UITableViewController {
+class TaskDetailsController: UITableViewController {
     
     private let dataManager = CoreDataManager()
     
-    //var editingTask = Task()
-    var cellIndex: Int!
+    var editingTask: Task?
     //var titleText: String?
     //var detailsText: String?
     
@@ -23,31 +22,31 @@ class DetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSaveButtonState(self)
-        guard cellIndex != nil else { return }
-        titleTextField.text = dataManager.fetchData()[cellIndex].title
-        detailsTextField.text = dataManager.fetchData()[cellIndex].details
+        
+        titleTextField.text = editingTask?.title
+        detailsTextField.text = editingTask?.details
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "SaveSegue"  else { return }
-        let listVC = segue.destination as! ViewController
-        if let index = cellIndex {
-            print("index = \(index)")
-            let task = dataManager.fetchData()[index]
+        let listVC = segue.destination as! TaskListController
+        if let task = editingTask {
             task.title = titleTextField.text
             task.details = detailsTextField.text
         } else {
-            dataManager.addObject(title: titleTextField.text, details: detailsTextField.text)
+            dataManager.addTask(title: titleTextField.text, details: detailsTextField.text)
         }
-        dataManager.saveContext()
+        //dataManager.saveContext()
         //listVC.dataManager.fetchData()
-        listVC.tableView.reloadData()
+        listVC.updateTable()
     }
     
-    func preset(index: Int) {
+    
+    
+    func preset(taskID: String) {
         self.title = "Editing"
-        cellIndex = index
+        editingTask = dataManager.getTask(id: taskID)
     }
     @IBAction func updateSaveButtonState(_ sender: Any) {
         let titleIsEmpty = titleTextField.text?.isEmpty ?? true
