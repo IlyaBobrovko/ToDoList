@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TaskViewCellDelegate {
+    func checkBoxTapped(cell: TaskViewCell)
+}
+
 class TaskViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -15,11 +19,11 @@ class TaskViewCell: UITableViewCell {
     
     var taskID: String!
     
-    var delegate: CheckBoxListener?
+    var delegate: TaskViewCellDelegate?
 
     @IBAction func checkButtonTappet(_ sender: Any) {
         guard taskID != nil else { return }
-        delegate?.checkButtonTapped(cell: self)
+        delegate?.checkBoxTapped(cell: self)
         print("check box on task with id:\(String(taskID)) tapped")
     }
     

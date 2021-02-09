@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09112BF8258A628C00428B9C /* TaskTableSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09112BF7258A628C00428B9C /* TaskTableSource.swift */; };
 		096F0683257EBF3300A55352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F0682257EBF3300A55352 /* AppDelegate.swift */; };
 		096F0685257EBF3300A55352 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F0684257EBF3300A55352 /* SceneDelegate.swift */; };
 		096F0687257EBF3300A55352 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F0686257EBF3300A55352 /* TaskListController.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09112BF7258A628C00428B9C /* TaskTableSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableSource.swift; sourceTree = "<group>"; };
 		096F067F257EBF3300A55352 /* NewToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		096F0682257EBF3300A55352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		096F0684257EBF3300A55352 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			children = (
 				096F0686257EBF3300A55352 /* TaskListController.swift */,
 				096F06A7257EE13A00A55352 /* TaskDetailsController.swift */,
-				09112BF7258A628C00428B9C /* TaskTableSource.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 				096F06A8257EE13A00A55352 /* TaskDetailsController.swift in Sources */,
 				096F068D257EBF3300A55352 /* NewToDoList.xcdatamodeld in Sources */,
 				096F069B257EC13700A55352 /* TaskViewCell.swift in Sources */,
-				09112BF8258A628C00428B9C /* TaskTableSource.swift in Sources */,
 				096F0687257EBF3300A55352 /* TaskListController.swift in Sources */,
 				096F0683257EBF3300A55352 /* AppDelegate.swift in Sources */,
 				096F06A3257EC36C00A55352 /* CoreDataManager.swift in Sources */,

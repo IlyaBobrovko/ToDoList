@@ -13,7 +13,7 @@ class CoreDataManager {
 
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private func saveContext () {
+    func saveContext () {
         if context.hasChanges {
             do {
                 try context.save()
@@ -36,11 +36,6 @@ class CoreDataManager {
             print("fetch data error..")
             return []
         }
-    }
-    
-    // remove this func
-    func updateData() {
-        saveContext()
     }
     
     func deleteTask(id: String) {

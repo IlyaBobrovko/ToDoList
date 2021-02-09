@@ -38,18 +38,18 @@ class TaskDetailsController: UITableViewController {
         if let task = editingTask {
             task.title = titleTextField.text
             task.details = detailsTextField.text
+            dataManager.saveContext()
         } else {
             dataManager.addTask(title: titleTextField.text, details: detailsTextField.text)
         }
-        //dataManager.saveContext()
-        //listVC.dataManager.fetchData()
+        
         listVC.updateTable()
     }
     
     
-    func preset(taskID: String) {
+    func presetTask(id: String) {
         self.title = "Editing"
-        editingTask = dataManager.getTask(id: taskID)
+        editingTask = dataManager.getTask(id: id)
     }
     
 }

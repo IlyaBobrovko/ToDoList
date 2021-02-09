@@ -123,7 +123,7 @@
             <objects>
                 <tableViewController id="7Gz-WH-lnp" customClass="TaskDetailsController" customModule="NewToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="PwC-od-zyd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <sections>
@@ -193,13 +193,13 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bea-sB-k6y">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
-                                <segue destination="K0w-YX-Q5k" kind="unwind" identifier="CancelSegue" unwindAction="uwindSegueWithSegue:" id="tVt-dj-yXp"/>
+                                <segue destination="K0w-YX-Q5k" kind="unwind" identifier="CancelSegue" unwindAction="unwindSegueWithSegue:" id="tVt-dj-yXp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Y1F-Ji-dbL">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
-                                <segue destination="K0w-YX-Q5k" kind="unwind" identifier="SaveSegue" unwindAction="uwindSegueWithSegue:" id="aXc-98-SJM"/>
+                                <segue destination="K0w-YX-Q5k" kind="unwind" identifier="SaveSegue" unwindAction="unwindSegueWithSegue:" id="aXc-98-SJM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
