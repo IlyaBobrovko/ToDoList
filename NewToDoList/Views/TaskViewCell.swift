@@ -1,5 +1,5 @@
 //
-//  CustomViewCell.swift
+//  TaskViewCell.swift
 //  NewToDoList
 //
 //  Created by Bobrovko Ilya on 07.12.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomViewCell: UITableViewCell {
+class TaskViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
@@ -16,12 +16,7 @@ class CustomViewCell: UITableViewCell {
     var taskID: String!
     
     var delegate: CheckBoxListener?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+
     @IBAction func checkButtonTappet(_ sender: Any) {
         guard taskID != nil else { return }
         delegate?.checkButtonTapped(cell: self)
@@ -31,15 +26,11 @@ class CustomViewCell: UITableViewCell {
     func bind(task: Task) {
         titleLabel.text = task.title
         detailsLabel.text = task.details
-        taskID = task.id
+        
         let image = UIImage(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
         checkButton.setImage(image, for: .normal)
+        
+        taskID = task.id
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

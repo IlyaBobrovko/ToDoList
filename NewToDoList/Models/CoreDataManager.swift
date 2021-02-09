@@ -10,15 +10,8 @@ import CoreData
 import UIKit
 
 class CoreDataManager {
-    
-//    private var Qcontext: NSManagedObjectContext = {
-//        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    } ()
-    
+
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    //lazy var tasks: [Task] = fetchData()
-    
     
     private func saveContext () {
         if context.hasChanges {
@@ -29,28 +22,15 @@ class CoreDataManager {
             }
         }
     }
-    
-//    func fetchData() {
-//        do {
-//            let data = try context.fetch(Task.fetchRequest())
-//            tasks = data as! [Task]
-//            tasks.sort{ $0.title! < $1.title! }
-//        } catch {
-//            print("fetch data error..")
-//        }
-//    }
 
     func fetchData() -> [Task] {
         do {
             let sort = NSSortDescriptor(key: "title", ascending: true)
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
             fetchRequest.sortDescriptors = [sort]
+            
             var data = try context.fetch(Task.fetchRequest()) as! [Task]
             data.sort{ $0.title! < $1.title! }
-            
-//            let tagFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskTag")
-//            let taskTag = data.map{ $0.tags }
-            //let tags = data.map{ $0.tags } as! [Tag]
             return data
         } catch {
             print("fetch data error..")
@@ -58,6 +38,7 @@ class CoreDataManager {
         }
     }
     
+    // remove this func
     func updateData() {
         saveContext()
     }
@@ -101,17 +82,5 @@ class CoreDataManager {
         task.id = String(Int(NSDate().timeIntervalSince1970))
         saveContext()
     }
-    
-    func deleteObject(index: Int) {
-        context.delete(fetchData()[index])
-        saveContext()
-        //fetchData() //fix
-    }
-    
-    func addObject(title: String?, details: String?) {
-        let task = Task(entity: Task.entity(), insertInto: self.context)
-        task.title = title
-        task.details = details
-        saveContext()
-    }
+
 }

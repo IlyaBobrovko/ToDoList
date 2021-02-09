@@ -11,14 +11,18 @@ class TaskDetailsController: UITableViewController {
     private let dataManager = CoreDataManager()
     
     var editingTask: Task?
-    //var titleText: String?
-    //var detailsText: String?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextField: UITextField!
     
-    
+
+    @IBAction func updateSaveButtonState(_ sender: Any) {
+        let titleIsEmpty = titleTextField.text?.isEmpty ?? true
+        let detailsIsEmpty = detailsTextField.text?.isEmpty ?? true
+        saveButton.isEnabled = !(titleIsEmpty || detailsIsEmpty)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSaveButtonState(self)
@@ -43,15 +47,9 @@ class TaskDetailsController: UITableViewController {
     }
     
     
-    
     func preset(taskID: String) {
         self.title = "Editing"
         editingTask = dataManager.getTask(id: taskID)
-    }
-    @IBAction func updateSaveButtonState(_ sender: Any) {
-        let titleIsEmpty = titleTextField.text?.isEmpty ?? true
-        let detailsIsEmpty = detailsTextField.text?.isEmpty ?? true
-        saveButton.isEnabled = !(titleIsEmpty || detailsIsEmpty)
     }
     
 }
