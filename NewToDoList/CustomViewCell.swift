@@ -13,19 +13,27 @@ class CustomViewCell: UITableViewCell {
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
-    var delegate: CustomCellListener?
+    var taskID: String!
+    
+    var delegate: CheckBoxListener?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
+    @IBAction func checkButtonTappet(_ sender: Any) {
+        guard taskID != nil else { return }
+        delegate?.checkButtonTapped(cell: self)
+        print("check box on task with id:\(String(taskID)) tapped")
+    }
+    
     func bind(task: Task) {
         titleLabel.text = task.title
         detailsLabel.text = task.details
-    }
-    @IBAction func checkButtonTappet(_ sender: Any) {
-        delegate?.checkButtonTapped(cell: self)
+        taskID = task.id
+        let image = UIImage(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
+        checkButton.setImage(image, for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
